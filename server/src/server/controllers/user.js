@@ -1,7 +1,5 @@
 const bcrypt = require("bcrypt");
-const jwt = require('jsonwebtoken');
 const ApiError = require("../../utils/apiErrors")
-const config = require('../../config')
 const {User, Basket} = require("../../db/models/models");
 const generateJwt = require("../../utils/generateJwt");
 
@@ -10,15 +8,14 @@ async function registration(req, res, next) {
     if (!email || !password) {
         return next(ApiError.badRequest("Wrong email or password"))
     }
-    const candidate = await User.findOne({where: {email}})//TODO создать сервис работа с бд там
+    const candidate = await User.findOne({where: {email}})
     if (candidate) {
         return next(ApiError.badRequest("This email is exist"))
     }
     const hashPassword = await bcrypt.hash(password.toString(), 5);
     const user = await User.create({email, role, password: hashPassword})
-    const basket = await Basket.create({userId: user.id})
+    await Basket.create({userId: user.id})
     const token = generateJwt(user)
-    //TODO Validation
     return res.json({token})
 }
 
