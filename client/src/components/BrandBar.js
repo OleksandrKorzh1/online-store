@@ -19,6 +19,7 @@ const BrandBar = observer(() => {
                     {brand.name}
                 </Card>
             )}
+            <Card onClick={()=>device.setSelectedBrand({})} className="p-3"  style={{cursor:'pointer'}}>Reset brands</Card>
         </Row>
     );
 });

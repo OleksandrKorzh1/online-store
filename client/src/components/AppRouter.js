@@ -1,7 +1,8 @@
 import React, {useContext} from 'react';
-import {Routes, Route, Navigate} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import {publicRoutes,authRoutes} from "../routes";
 import {Context} from "../index";
+import NotFound from "../pages/NotFound"
 
 
 const AppRouter = () => {
@@ -17,7 +18,7 @@ const AppRouter = () => {
             )}
             <Route
                 path="*"
-                element={<Navigate to="/" replace />}
+                element={<NotFound/>}
             />
         </Routes>
     );

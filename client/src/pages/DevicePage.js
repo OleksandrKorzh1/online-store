@@ -13,13 +13,13 @@ const DevicePage = () => {
     const add = () => {
         const formData = new FormData()
         formData.append('deviceId', id)
-        addToBasket(formData).then(response => alert(`Product ` + device.name + ` has been added to cart!`))
+        addToBasket(formData).then(()=> alert(`Product ` + device.name + ` has been added to cart!`))
     }
     return (
         <Container className={"mt-3"}>
             <Row>
                 <Col md={4}>
-                    <Image width={300} height={300} src={process.env.REACT_APP_API_URL + device.img}/>
+                    <Image  thumbnail={"true"} src={process.env.REACT_APP_API_URL + device.img}/>
                 </Col>
                 <Col md={4}>
                     <Row className={"d-flex flex-column align-items-center"}>
@@ -41,14 +41,14 @@ const DevicePage = () => {
                 </Card>
                 </Col>
             </Row>
-            <Row className={"d-flex flex-column m-3"}>
-                <h1>Specification</h1>
+            <div className={"d-flex flex-column m-3"} style={{float:"right",width:"60%"}}>
+                <h1 style={{textAlign:"center"}}>Specification</h1>
                 {device.info.map((info,index)=>
                     <Row key={info.id} style={{background:index%2===0?'lightgray' : 'transparent ',padding:10}}>
                         {info.title}:{info.description}
                     </Row>
                 )}
-            </Row>
+            </div>
         </Container>
     );
 };
