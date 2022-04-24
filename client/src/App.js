@@ -13,23 +13,23 @@ const App = observer(() => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        check().then(data=>{
-            user.setUser(data);
-            user.setIsAuth(true);
-            user.setIsAdmin(true);
+        check().then(()=>{
+            // user.setUser(data);
+            // user.setIsAuth(true);
+            // if(data.role.replace(/\s/g, '')==="ADMIN"){
+            //     user.setIsAdmin(true);
+            // }
         }).finally(()=>setLoading(false))
-    },[])
+    },[user])
 
     if(loading){
         return <Spinner animation={"grow"}/>
     }
     return (
-        <React.StrictMode>
             <BrowserRouter>
                 <NavBar/>
                 <AppRouter/>
             </BrowserRouter>
-        </React.StrictMode>
     );
 })
 

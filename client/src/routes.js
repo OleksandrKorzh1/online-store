@@ -14,6 +14,7 @@ import Shop from "./pages/Shop";
 import Auth from "./pages/Auth";
 import DevicePage from "./pages/DevicePage";
 import About from "./pages/About";
+import Home from "./pages/Home";
 
 export const authRoutes = [
     {
@@ -45,7 +46,7 @@ export const publicRoutes = [
     },
     {
         path: HOME_ROUTE,
-        Component: Shop
+        Component: Home
     },
     {
         path: ABOUT_ROUTE,

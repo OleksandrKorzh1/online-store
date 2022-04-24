@@ -7,13 +7,14 @@ import DeviceStore from "./store/deviceStore";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 export const Context = createContext(null);
-
 root.render(
+    <React.StrictMode>
     <Context.Provider value={{
         user: new UserStore(),
         device:new DeviceStore()
     }}>
         <App/>
     </Context.Provider>
+    </React.StrictMode>
 );
 
