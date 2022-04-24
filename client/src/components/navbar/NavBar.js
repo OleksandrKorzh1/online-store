@@ -8,13 +8,14 @@ import {IconContext} from 'react-icons';
 import {Button} from "react-bootstrap";
 import { LOGIN_ROUTE} from "../../utils/consts";
 import {Context} from "../../index";
+import {observer} from "mobx-react-lite";
 
-function Navbar() {
+const Navbar=observer(()=> {
+    const {user} = useContext(Context)
+    let navigate = useNavigate();
     const [sidebar, setSidebar] = useState(false);
 
     const showSidebar = () => setSidebar(!sidebar);
-    const {user} = useContext(Context)
-    let navigate = useNavigate();
 
 
 
@@ -64,6 +65,6 @@ function Navbar() {
             </IconContext.Provider>
         </>
     );
-}
+});
 
 export default Navbar;
