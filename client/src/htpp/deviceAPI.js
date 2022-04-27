@@ -21,7 +21,7 @@ export const createDevice = async (device) => {
     const {data} = await $authHost.post('device/create',device);
     return data;
 }
-export const fetchDevices = async (typeId,brandId,page,limit=5) => {
+export const fetchDevices = async (typeId=1,brandId,page,limit=5) => {
     const{data}=await $host.get('device/',{params:{
         typeId,brandId,page,limit}
     })

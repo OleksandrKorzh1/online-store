@@ -13,18 +13,19 @@ const Basket = observer(() => {
         getBasket().then(data => device.setBaskets(data))
     }, [device])
 
-    let {prices} = 0;
-        device.basket.map(price =>
-            prices += Number(price.device.price)
+    let prices = 0;
+        device.basket.map(device => {
+                prices =prices+Number(device.device.price);
+            }
         )
     return (
         <Container
             className="d-flex flex-sm-column justify-content-center align-items-center mt-3"
         >
-            <h1 className="pb-2">Корзина</h1>
+            <h1 className="pb-2">Cart</h1>
             <Card className="d-flex flex-row  p-2 justify-content-between align-items-center mb-2">
                 <h1 className="pr-2">Итого:</h1>
-                <h3 className="pl-2">{prices}<span className="font-weight-light pl-2">рублей</span></h3>
+                <h3 className="pl-2">{prices}<span className="font-weight-light pl-2">UAN</span></h3>
             </Card>
             {device.basket.map(product =>
                 <Card className="d-flex w-100 p-2 justify-content-center mb-2" key={product.id}>
@@ -37,7 +38,7 @@ const Basket = observer(() => {
                         </Col>
                         <Col>
                             <div className="d-flex h-100 flex-row justify-content-end align-items-center">
-                                <h2 className="font-weight-light">{product.device.price} рублей</h2>
+                                <h2 className="font-weight-light">{product.device.price} UAN</h2>
                             </div>
                         </Col>
                     </Row>
