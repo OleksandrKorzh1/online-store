@@ -2,7 +2,7 @@ import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import {AiFillInfoCircle} from "react-icons/ai";
-import {ABOUT_ROUTE, BASKET_ROUTE, HOME_ROUTE, SHOP_ROUTE} from "../../utils/consts";
+import {ABOUT_ROUTE, ADMIN_ROUTE, BASKET_ROUTE, HOME_ROUTE, SHOP_ROUTE} from "../../utils/consts";
 import {FaProductHunt} from "react-icons/fa";
 
 export const SidebarData = [
@@ -25,9 +25,15 @@ export const SidebarData = [
         cName: 'nav-text'
     },
     {
+        title:'Admin Panel',
+        path: ADMIN_ROUTE,
+        icon: <AiFillInfoCircle />,
+        cName: 'nav-text'
+    },
+    {
         title:'About',
         path: ABOUT_ROUTE,
         icon: <AiFillInfoCircle />,
         cName: 'nav-text'
-    }
+    },
 ];

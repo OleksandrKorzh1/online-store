@@ -1,0 +1,33 @@
+.device_img img{
+    margin-left: 20%;
+    width: 30%;
+    height: 100%;
+}
+.device_img{
+    width: 50%;
+}
+.device_name{
+    text-align: center;
+    font-size: 60px;
+}
+.device_price{
+    text-align: center;
+}
+.price_div{
+    display: flex;
+    margin-left: 30%;
+    margin-top: 5px;
+}
+.qwe{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10%;
+    border-radius: 10px;
+}
+.description_device{
+    margin-right: 10%;
+}
+.button_buy{
+    width:20%;
+    margin-left: 30px;
+}

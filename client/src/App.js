@@ -5,25 +5,31 @@ import NavBar from "./components/navbar/NavBar";
 import {observer} from "mobx-react-lite";
 import {Context} from "./index";
 import {check} from "./htpp/userAPI";
-import {Spinner} from "react-bootstrap";
+import {Backdrop, CircularProgress} from "@mui/material";
 
 
 const App = observer(() => {
     const {user} = useContext(Context);
     const [loading, setLoading] = useState(true);
-
     useEffect(() => {
-        check().then(()=>{
-            // user.setUser(data);
-            // user.setIsAuth(true);
-            // if(data.role.replace(/\s/g, '')==="ADMIN"){
-            //     user.setIsAdmin(true);
-            // }
+        check().then((data)=>{
+            user.setUser(data);
+            user.setIsAuth(true);
+            if(data.role.replace(/\s/g, '')==="ADMIN"){
+                user.setIsAdmin(true);
+            }
         }).finally(()=>setLoading(false))
     },[user])
 
     if(loading){
-        return <Spinner animation={"grow"}/>
+        return (
+            <Backdrop
+                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={loading}
+            >
+                <CircularProgress color="inherit" />
+            </Backdrop>
+        )
     }
     return (
             <BrowserRouter>

@@ -20,6 +20,7 @@ const Navbar=observer(()=> {
 
 
     function logout() {
+        localStorage.removeItem('token');
         user.setUser({});
         user.setIsAuth(false);
         user.setIsAdmin(false)

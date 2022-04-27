@@ -17,7 +17,7 @@ const Shop = observer(() => {
     useEffect(() => {
         fetchTypes().then(data => device.setTypes(data))
         fetchBrands().then(data => device.setBrands(data))
-        fetchDevices(null, null, 1, device.limit).then(data => {
+        fetchDevices(1, null, 1, device.limit).then(data => {
             device.setDevices(data.rows)
             device.setTotalCount(data.count)
         })
@@ -30,18 +30,18 @@ const Shop = observer(() => {
     }, [device.page, device.selectedType, device.selectedBrand,])
 
     return (
-        <Container>
-            <Row className="mt-2">
-                <Col md={3}>
-                    <TypeBar/>
-                </Col>
-                <Col md={9}>
-                    <BrandBar/>
-                    <DeviceList/>
-                    <Pages/>
-                </Col>
-            </Row>
-        </Container>
+
+        <Row className="mt-2">
+            <Col md={3}>
+                <TypeBar/>
+            </Col>
+            <Col md={9}>
+                <BrandBar/>
+                <DeviceList/>
+                <Pages/>
+            </Col>
+        </Row>
+
     );
 });
 
