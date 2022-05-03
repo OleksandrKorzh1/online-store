@@ -4,6 +4,7 @@ import * as AiIcons from 'react-icons/ai';
 import {AiFillInfoCircle} from "react-icons/ai";
 import {ABOUT_ROUTE, ADMIN_ROUTE, BASKET_ROUTE, HOME_ROUTE, SHOP_ROUTE} from "../../utils/consts";
 import {FaProductHunt} from "react-icons/fa";
+import {RiAdminFill} from "react-icons/ri";
 
 export const SidebarData = [
     {
@@ -27,7 +28,7 @@ export const SidebarData = [
     {
         title:'Admin Panel',
         path: ADMIN_ROUTE,
-        icon: <AiFillInfoCircle />,
+        icon: <RiAdminFill/>,
         cName: 'nav-text'
     },
     {

@@ -24,7 +24,7 @@ const Basket = observer(() => {
         >
             <h1 className="pb-2">Cart</h1>
             <Card className="d-flex flex-row  p-2 justify-content-between align-items-center mb-2">
-                <h1 className="pr-2">Итого:</h1>
+                <h1 className="pr-2">Total:</h1>
                 <h3 className="pl-2">{prices}<span className="font-weight-light pl-2">UAN</span></h3>
             </Card>
             {device.basket.map(product =>
