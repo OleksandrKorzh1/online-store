@@ -38,6 +38,7 @@ const Navbar=observer(()=> {
                     <Link to='#' className='menu-bars'>
                         <FaIcons.FaBars onClick={showSidebar}/>
                     </Link>
+                    <span style={{color:"white"}}>Smart Market</span>
                     {user.isAuth ?
                         <Button variant={'outline-light'} className="ml-2" onClick={logout}> Logout</Button>
                         :

@@ -8,7 +8,7 @@ import "./css/DeviceItem.css"
 const DeviceItem = ({device}) => {
     const navigate = useNavigate();
     return (
-        <Col md={3} className={"mt-3"} style={{display:"flex",flexDirection:"column"}} onClick={() => navigate(DEVICE_ROUTE + '/' + device.id)}>
+        <Col md={3} className={"mt-3"} style={{display:"flex",flexDirection:"column",cursor:"pointer"}} onClick={() => navigate(DEVICE_ROUTE + '/' + device.id)}>
             <Card className={"deviceitem"}>
                 <Image  style={{height:"90%"}} src={process.env.REACT_APP_API_URL + device.img}/><br/>
             </Card>
